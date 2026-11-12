@@ -4,8 +4,7 @@ Launch a browser terminal on an allocated compute node. This Batch Connect app s
 
 ## Requirements
 
-- Open OnDemand with Batch Connect, a configured job scheduler, and the [`/rnode` reverse proxy](https://osc.github.io/ood-documentation/latest/how-tos/app-development/interactive/view.html#reverse-proxy) enabled.
-- Linux compute nodes with Bash, `getent`, and access to the [`sorenisanerd/gotty` v1.11.0 binary](https://github.com/sorenisanerd/gotty/releases/tag/v1.11.0) for their CPU architecture.
+- Linux compute nodes with Bash and `getent`
 
 ## Installation
 
@@ -25,7 +24,6 @@ Launch a browser terminal on an allocated compute node. This Batch Connect app s
    cd /var/www/ood/apps/sys/
    sudo git clone https://github.com/OpenOnDemandJP/ood_gotty.git
    ```
-3. Launch GoTTY from **Interactive Apps**, click **Open GoTTY**, and run a command to verify the connection.
 
 ## Configuration
 
@@ -36,9 +34,17 @@ Launch a browser terminal on an allocated compute node. This Batch Connect app s
 
 ## Testing and limitations
 
-GoTTY v1.11.0 startup and WebSocket connections were verified on Linux x86-64 and ARM64 using Slurm test jobs in an Open OnDemand 4.2.5 environment. Other schedulers and OOD versions are unverified.
+GoTTY v1.11.0 startup and WebSocket connections were verified on Linux x86-64 and ARM64 using Slurm test jobs in an Open OnDemand 4.2.5 environment. 
 
-GoTTY's startup message must reach the session's `output.log` on stderr. Keep the log private because it contains the session URL.
+GoTTY's startup message must reach the session's `output.log` on stderr.
+
+## Security
+
+GoTTY uses `--random-url --random-url-length 32` to generate a 32-character secret path using a cryptographically secure random number generator. It writes the startup URL to the job's `output.log`.
+
+`after.sh` reads the path into a shell variable. Open OnDemand saves it in `connection.yml` and uses it to build the **Open GoTTY** link through `/rnode`. The app keeps the secret out of command-line arguments and environment variables.
+
+The URL grants access to the running terminal, so keep it, `output.log`, and `connection.yml` private. GoTTY also checks WebSocket requests against the configured Open OnDemand origin.
 
 ## License
 
