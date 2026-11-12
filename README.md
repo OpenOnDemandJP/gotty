@@ -4,6 +4,7 @@ Launch a browser terminal on an allocated compute node. This Batch Connect app s
 
 ## Requirements
 
+- [GoTTY](https://github.com/sorenisanerd/gotty/)
 - Linux compute nodes with Bash and `getent`
 
 ## Installation
