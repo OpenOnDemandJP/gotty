@@ -1,0 +1,15 @@
+<%
+  require "erb"
+  terminal_path = gotty_path.to_s
+  unless /\A\/[0-9a-z]{32}\/\z/.match?(terminal_path)
+    raise "Invalid GoTTY connection path"
+  end
+  terminal_url = "/rnode/#{host}/#{port}#{terminal_path}"
+%>
+<a class="btn btn-primary"
+   href="<%= ERB::Util.html_escape(terminal_url) %>"
+   target="_blank"
+   rel="noopener noreferrer">
+  Open GoTTY
+</a>
+

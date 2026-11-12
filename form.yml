@@ -1,0 +1,15 @@
+---
+form:
+  - bc_queue
+  - bc_num_hours
+  - font_size
+
+attributes:
+  font_size:
+    label: Font Size (10 - 30)
+    widget: number_field
+    required: true
+    max: 30
+    min: 10
+    step: 1
+    value: 20

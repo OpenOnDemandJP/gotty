@@ -1,0 +1,8 @@
+---
+name: GoTTY
+icon: icon.png
+category: Interactive Apps
+subcategory: Development
+role: batch_connect
+description: Open a terminal on an allocated compute node.
+
