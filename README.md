@@ -1,4 +1,4 @@
-# GoTTY for Open OnDemand
+# GoTTY terminal for Open OnDemand
 
 Launch a browser terminal on an allocated compute node. This Batch Connect app starts the user's registered login shell.
 
