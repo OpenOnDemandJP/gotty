@@ -23,7 +23,7 @@ Launch a browser terminal on an allocated compute node. This Batch Connect app s
 
    ```bash
    cd /var/www/ood/apps/sys/
-   sudo git clone https://github.com/OpenOnDemandJP/ood_gotty.git
+   sudo git clone https://github.com/OpenOnDemandJP/GoTTY.git
    ```
 
 ## Configuration
