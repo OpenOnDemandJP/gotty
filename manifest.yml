@@ -1,6 +1,5 @@
 ---
 name: GoTTY Terminal
-icon: icon_192.png
 category: Interactive Apps
 subcategory: Development
 role: batch_connect
