@@ -1,2 +1,2 @@
-Source: https://code.oscer.ou.edu/OnDemand/ood-apps-nmsu/-/tree/main/shell
+Source: https://github.com/sorenisanerd/gotty/tree/main/resources
 License: MIT
